@@ -1,8 +1,27 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
+import M from "materialize-css/dist/js/materialize";
+
+const cartStyles = {
+  fontSize: "11px",
+  fontWeight: "bold",
+  color: "black",
+  background: "#fff200",
+  borderRadius: "50%",
+  padding: "5px",
+  position: "relative",
+  left: "-13px",
+  top: "-9px",
+};
 
 class Navbar extends Component {
+
+  componentDidMount() {
+    let sidenav = document.querySelector(".sidenav");
+    M.Sidenav.init(sidenav, {});
+  }
+
   render() {
     return (
       <div>
@@ -19,12 +38,14 @@ class Navbar extends Component {
               >
                 <i className="material-icons">menu</i>
               </Link>
-              <Link
-                className="right"
-                to="/cart"
-              >
-                <i className="fas fa-shopping-cart fa-lg" style={{ marginRight: ".5rem" }}></i>
-                {this.props.cartItems.cartItems.length}
+              <Link className="right" to="/cart">
+                <i
+                  className="fas fa-shopping-cart fa-lg"
+                  style={{ marginRight: ".5rem" }}
+                ></i>
+                <span style={cartStyles}>
+                  {this.props.cartItems.cartItems.length}
+                </span>
               </Link>
               <Link className="right" to="/" style={{ marginRight: "1rem" }}>
                 Shop
@@ -34,18 +55,15 @@ class Navbar extends Component {
         </nav>
         <ul className="sidenav" id="mobile-links">
           <li>
-            <Link to="/">Home</Link>
+            <Link className="sidenav-close" to="/">Home</Link>
           </li>
           <li>
-            <Link to="/about">About</Link>
+            <Link className="sidenav-close" to="/about">About</Link>
           </li>
-          <li>
-            {/* <Link to="/contact">Contact</Link> */}
-          </li>
+          <li>{/* <Link to="/contact">Contact</Link> */}</li>
           <li className="cart waves-effect modal-trigger">
-            <Link to="/cart">
-              <i className="fas fa-shopping-cart fa-lg"> 
-              </i>
+            <Link className="sidenav-close" to="/cart">
+              <i className="fas fa-shopping-cart fa-lg"></i>
               {this.props.cartItems.cartItems.length}
             </Link>
           </li>

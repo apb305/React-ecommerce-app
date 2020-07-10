@@ -44,7 +44,7 @@ class Checkout extends Component {
 
            {/* Order summary section */}
           <div style={{border: "solid silver 1px" }}>
-            <div style={{ padding: "3em" }}>
+            <div style={{ padding: "1em" }}>
             <h5 className="center">Order Summary</h5>
               <p>
                 Items ({this.props.cartItems.cartItems.length}):{" "}

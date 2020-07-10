@@ -22,84 +22,72 @@ class Cart extends Component {
         {cartItems.cartItems.length > 0 ? (
           <div className="container">
             {cartItems.cartItems.map((data) => (
-              <div className="col s12 m7" key={data.id}>
-                <div className="card horizontal">
-                  <div
-                    className="card-image"
-                    style={{ marginTop: "2.5em", marginLeft: "1em" }}
-                  >
+              <div className="z-depth-1" key={data.id} style={{ marginTop: "1em"}}>
+                <div className="row">
+                  <div className="col s6 m4 offset-m2">
                     <img
                       src={data.img}
                       alt="Product"
-                      style={{ width: "60px", height: "60px" }}
+                      style={{
+                        width: "70px",
+                        height: "70px",
+                        marginTop: "1em",
+                      }}
                     />
                   </div>
 
-                  <div className="card-stacked">
-                    <div className="card-content">
-                      <p style={{ fontWeight: "bold" }}>{data.product_name}</p>
-                      <div className="left">
-                        <p>${data.product_price.toFixed(2)}</p>
-                        <p>Quantity: {data.quantity}</p>
-                        <div style={{ marginTop: "3px" }}>
-                          <button
-                            className="btn btn-small black"
-                            style={{ color: "silver", marginRight: "3px" }}
-                            onClick={() => {
-                              this.props.decrementItem(data);
-                            }}
-                          >
-                            <i
-                              className="fas fa-minus sm"
-                              style={{ color: "silver" }}
-                            />
-                          </button>
-                          <button
-                            className="btn btn-small black"
-                            onClick={() => {
-                              this.props.addItem(data);
-                            }}
-                            disabled={data.quantity === 10 ? true : false}
-                          >
-                            <i
-                              className="fas fa-plus sm"
-                              style={{ color: "silver" }}
-                            />
-                          </button>
-                        </div>
-                      </div>
-
-                      <div className="right">
-                        <p>
-                          <Link
-                            onClick={() => {
-                              this.props.removeItem(data);
-                            }}
-                            to="#"
-                            style={{ color: "red" }}
-                          >
-                            Remove
-                          </Link>
-                        </p>
-                      </div>
-                    </div>
+                  <div className="col s6 m4 offset-m2">
+                    <p style={{ fontWeight: "bold" }}>{data.product_name}</p>
+                    <p>${data.product_price.toFixed(2)}</p>
+                    <p>Qty: {data.quantity}</p>
+                    <button
+                      className="btn btn-small black"
+                      style={{ color: "silver", marginRight: "3px" }}
+                      onClick={() => {
+                        this.props.decrementItem(data);
+                      }}
+                    >
+                      <i
+                        className="fas fa-minus sm"
+                        style={{ color: "silver" }}
+                      />
+                    </button>
+                    <button
+                      className="btn btn-small black"
+                      onClick={() => {
+                        this.props.addItem(data);
+                      }}
+                      disabled={data.quantity === 10 ? true : false}
+                    >
+                      <i
+                        className="fas fa-plus sm"
+                        style={{ color: "silver" }}
+                      />
+                    </button>
+                    <p>
+                      <Link
+                        onClick={() => {
+                          this.props.removeItem(data);
+                        }}
+                        to="#"
+                        style={{ color: "red" }}
+                      >
+                        Remove
+                      </Link>
+                    </p>
                   </div>
                 </div>
               </div>
             ))}
-            <p
-              style={{ fontSize: "12px" }}
-            >
-              ***Limit 10 per customer.
-            </p>
+            <p style={{ fontSize: "12px" }}>***Limit 10 per customer.</p>
             <p className="center">Subtotal: ${cartItems.total.toFixed(2)}</p>
             <div>
               <Link style={styles} to="/">
                 <i className="fas fa-arrow-left" /> Continue Shopping
               </Link>
               <span style={{ marginRight: "1rem" }}>|</span>
-              <Link style={styles} to="/checkout">
-                Checkout <i className="fas fa-arrow-right" />
+              <Link className="btn blue darken-3 btn-small" to="/checkout">
+                Checkout
               </Link>
             </div>
           </div>

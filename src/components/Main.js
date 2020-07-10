@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from 'react-redux';
-import ProductList from './Product-list'
-import { getItems } from '../redux/actions/productActions';
+import Products from './Products'
+import { getItems, getItem } from '../redux/actions/productActions';
 import { addItem } from '../redux/actions/cartActions';
 
 class Main extends Component {
@@ -13,9 +13,10 @@ class Main extends Component {
   render() {
     return (
       <div>
-        <ProductList 
+        <Products 
         products={this.props.items}
         addItem={this.props.addItem}
+        getItem={this.props.getItem}
         />
       </div>
     );
@@ -27,4 +28,4 @@ const mapStateToProps = state => ({
   cartItems: state.cartItems
 })
 
-export default connect(mapStateToProps, {getItems, addItem})(Main)
+export default connect(mapStateToProps, {getItems, addItem, getItem})(Main)

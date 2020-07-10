@@ -6,6 +6,7 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 import Main from "./components/Main";
 import About from "./components/About";
 import Cart from "./components/Cart";
+import Product from "./components/Product";
 //import Contact from "./components/Contact";
 import Checkout from "./components/Checkout";
 import Error from "./components/Error";
@@ -19,6 +20,7 @@ export default class App extends React.Component {
           <Route path="/navbar" component={Navbar} />
           <Switch>
             <Route path="/" exact component={Main} />
+            <Route path="/product" component={Product} />
             <Route path="/Cart" component={Cart} />
             <Route path="/Checkout" component={Checkout} />
             <Route path="/About" component={About} />
