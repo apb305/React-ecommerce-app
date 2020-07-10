@@ -22,7 +22,7 @@ export default class Products extends Component {
           <h4 className="center">Store Items</h4>
           {products.map((item) => (
             <div
-              className="col s12 m6 l3 center hoverable"
+              className="col s12 m6 l3 center"
               key={item.id}
               style={{ marginTop: "2rem" }}
             >

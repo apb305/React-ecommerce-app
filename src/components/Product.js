@@ -6,6 +6,7 @@ import M from "materialize-css/dist/js/materialize";
 
 const containerStyle = {
   marginTop: "3em",
+  marginBottom: "5em"
 };
 
 const imgStyles = {
