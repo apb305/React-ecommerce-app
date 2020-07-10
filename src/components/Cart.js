@@ -6,6 +6,7 @@ import {
   decrementItem,
   removeItem,
 } from "../redux/actions/cartActions";
+import { getItem } from "../redux/actions/productActions"
 
 const styles = {
   marginRight: "1em",
@@ -25,6 +26,7 @@ class Cart extends Component {
               <div className="z-depth-1" key={data.id} style={{ marginTop: "1em"}}>
                 <div className="row">
                   <div className="col s6 m4 offset-m2">
+                  <Link to={`/product/${data.id}`} onClick={() => this.props.getItem(data)}>
                     <img
                       src={data.img}
                       alt="Product"
@@ -34,6 +36,7 @@ class Cart extends Component {
                         marginTop: "1em",
                       }}
                     />
+                    </Link>
                   </div>
 
                   <div className="col s6 m4 offset-m2">
@@ -110,6 +113,6 @@ const mapStateToProps = (state) => ({
   total: state.total,
 });
 
-export default connect(mapStateToProps, { addItem, decrementItem, removeItem })(
+export default connect(mapStateToProps, { addItem, decrementItem, removeItem, getItem })(
   Cart
 );

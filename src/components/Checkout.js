@@ -6,6 +6,7 @@ import {
   decrementItem,
   removeItem,
 } from "../redux/actions/cartActions";
+import { getItem } from "../redux/actions/productActions"
 
 const styles = {
   marginRight: "1em",
@@ -28,11 +29,13 @@ class Checkout extends Component {
               className="collection-item"
               key={data.id}
             >
+              <Link to={`/product/${data.id}`} onClick={() => this.props.getItem(data)}>
               <img
                 src={data.img}
                 style={{ width: "60px", height: "60px" }}
                 alt="product"
               />
+              </Link>
               <p>
                 <span style={{fontWeight: "bold"}}>{data.product_name}</span> 
                 <br />${data.product_price.toFixed(2)} <br />
@@ -76,6 +79,6 @@ const mapStateToProps = (state) => ({
   total: state.total,
 });
 
-export default connect(mapStateToProps, { addItem, decrementItem, removeItem })(
+export default connect(mapStateToProps, { addItem, decrementItem, removeItem, getItem })(
   Checkout
 );
