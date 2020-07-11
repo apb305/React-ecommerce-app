@@ -6,54 +6,42 @@ import {
   decrementItem,
   removeItem,
 } from "../redux/actions/cartActions";
-import { getItem } from "../redux/actions/productActions"
-
-const styles = {
-  marginRight: "1em",
-  color: "black",
-  textAlign: "center",
-};
+import { getItem } from "../redux/actions/productActions";
 
 class Cart extends Component {
   render() {
     const { cartItems } = this.props;
     return (
-      <div style={{ marginBottom: "5em" }}>
+      <div className="containerDiv">
         <h4 className="center">My Cart</h4>
         {cartItems.cartItems.length > 0 ? (
           <div className="container">
             {cartItems.cartItems.map((data) => (
-              <div className="z-depth-1" key={data.id} style={{ marginTop: "1em"}}>
+              <div className="productDiv z-depth-1" key={data.id}>
                 <div className="row">
                   <div className="col s6 m4 offset-m2">
-                  <Link to={`/product/${data.id}`} onClick={() => this.props.getItem(data)}>
-                    <img
-                      src={data.img}
-                      alt="Product"
-                      style={{
-                        width: "70px",
-                        height: "70px",
-                        marginTop: "1em",
-                      }}
-                    />
+                    <Link
+                      to={`/product/${data.id}`}
+                      onClick={() => this.props.getItem(data)}
+                    >
+                      <img
+                        className="imageStyle left"
+                        src={data.img}
+                        alt="Product"
+                      />
                     </Link>
                   </div>
-
                   <div className="col s6 m4 offset-m2">
-                    <p style={{ fontWeight: "bold" }}>{data.product_name}</p>
+                    <p className="productTitle">{data.product_name}</p>
                     <p>${data.product_price.toFixed(2)}</p>
                     <p>Qty: {data.quantity}</p>
                     <button
-                      className="btn btn-small black"
-                      style={{ color: "silver", marginRight: "3px" }}
+                      className="decrementButton btn btn-small black"
                       onClick={() => {
                         this.props.decrementItem(data);
                       }}
                     >
-                      <i
-                        className="fas fa-minus sm"
-                        style={{ color: "silver" }}
-                      />
+                      <i className="buttonSigns fas fa-minus sm" />
                     </button>
                     <button
                       className="btn btn-small black"
@@ -62,18 +50,15 @@ class Cart extends Component {
                       }}
                       disabled={data.quantity === 10 ? true : false}
                     >
-                      <i
-                        className="fas fa-plus sm"
-                        style={{ color: "silver" }}
-                      />
+                      <i className="buttonSigns fas fa-plus sm" />
                     </button>
                     <p>
                       <Link
+                        className="removeButton"
                         onClick={() => {
                           this.props.removeItem(data);
                         }}
                         to="#"
-                        style={{ color: "red" }}
                       >
                         Remove
                       </Link>
@@ -82,13 +67,13 @@ class Cart extends Component {
                 </div>
               </div>
             ))}
-            <p style={{ fontSize: "12px" }}>***Limit 10 per customer.</p>
+            <p className="limitMessage">***Limit 10 per customer.</p>
             <p className="center">Subtotal: ${cartItems.total.toFixed(2)}</p>
             <div>
-              <Link style={styles} to="/">
+              <Link className="continueShoppingButton" to="/">
                 <i className="fas fa-arrow-left" /> Continue Shopping
               </Link>
-              <span style={{ marginRight: "1rem" }}>|</span>
+              <span className="elementDivider">|</span>
               <Link className="btn blue darken-3 btn-small" to="/checkout">
                 Checkout
               </Link>
@@ -98,7 +83,7 @@ class Cart extends Component {
           <div className="center">
             {" "}
             <h5 className="center">Your shopping cart is empty.</h5>{" "}
-            <Link style={styles} to="/">
+            <Link className="continueShoppingButton" to="/">
               <i className="fas fa-arrow-left" /> Continue Shopping
             </Link>
           </div>
@@ -113,6 +98,9 @@ const mapStateToProps = (state) => ({
   total: state.total,
 });
 
-export default connect(mapStateToProps, { addItem, decrementItem, removeItem, getItem })(
-  Cart
-);
+export default connect(mapStateToProps, {
+  addItem,
+  decrementItem,
+  removeItem,
+  getItem,
+})(Cart);

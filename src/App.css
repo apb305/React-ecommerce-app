@@ -1,60 +1,151 @@
-.App {
+body {
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Main product page styles */
+.productsContainer {
+  margin-bottom: 5em;
+}
+.productDiv {
+  margin-top: 2rem;
+}
+.productImage {
+  width: 150px;
+  height: 150px;
+  padding: 15px;
+}
+.productTitle {
+  font-weight: bold;
+  color: black;
+}
+.productDivider {
+  margin-top: 1rem;
+  width: 60%;
+}
+.aboutPageLink {
+  margin-top: 5rem;
+}
+
+/* Single product page styles */
+.containerStyle {
+  margin-top: 3em;
+  margin-bottom: 5em;
+}
+.imgStyles {
+  width: 200px;
+  height: 200px;
+}
+.productImage {
+  width: 150px;
+  height: 150px;
+  padding: 15px;
+}
+.productInfoDiv {
+  margin-top: 3em;
+}
+.productDescription {
+  margin-top: 2em;
+}
+
+/* Cart Styles*/
+.containerDiv {
+  margin-bottom: 5em;
+}
+.continueShoppingButton {
+  margin-right: 1em;
+  color: black;
+  text-align: center;
+}
+.productDiv {
+  margin-top: 1em;
+}
+.imageStyle {
+  width: 70px;
+  height: 70px;
+  margin-top: 1em;
+}
+.productTitle {
+  font-weight: bold;
+}
+.decrementButton {
+  color: silver;
+  margin-right: 3px;
+}
+.buttonSigns {
+  color: silver;
+}
+.removeButton {
+  color: red;
+}
+.limitMessage {
+  font-size: 12px;
+}
+.elementDivider {
+  margin-right: 1rem;
+}
+
+/* Checkout Styles*/
+.checkoutContainer {
+  margin-bottom: 5em;
+}
+.checkoutImage {
+  width: 60px;
+  height: 60px;
+}
+.productName {
+  font-weight: bold;
+}
+.orderSummaryContainer {
+  border: solid silver 1px;
+}
+.innerDiv {
+  padding: 1em;
+}
+.orderTotal {
+  font-weight: bold;
+}
+.placeOrderButton {
+  margin-top: 1em;
+}
+.backToCartDiv {
+  margin-top: 1em;
+}
+.backToCart {
+  margin-right: 1em;
+  color: black;
   text-align: center;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-  pointer-events: none;
-}
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-.tabs .tab a{
-  color:#000;
+/* Product Description, Specs, and Reviews section */
+.tabs .tab a {
+  color: #000;
 } /*Black color to the text*/
 
 .tabs .tab a:hover {
-
-  color:#000;
+  color: #000;
 } /*Text color on hover*/
 
 .tabs .tab a.active {
-
-  color:#000;
+  color: #000;
 } /*Background and text color when a tab is active*/
 
 .tabs .indicator {
-  background-color:#000;
+  background-color: #000;
 } /*Color of underline*/
 
 .tabs .tab a:focus.active {
-  color: black
+  color: black;
 }
 
-.tabs .tab a:focus, .tabs .tab a:focus.active {
+.tabs .tab a:focus,
+.tabs .tab a:focus.active {
   background-color: white;
   outline: none;
 }

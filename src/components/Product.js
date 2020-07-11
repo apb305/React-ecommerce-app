@@ -4,16 +4,6 @@ import { connect } from "react-redux";
 import { addItem } from "../redux/actions/cartActions";
 import M from "materialize-css/dist/js/materialize";
 
-const containerStyle = {
-  marginTop: "3em",
-  marginBottom: "5em"
-};
-
-const imgStyles = {
-  width: "300px",
-  height: "300px",
-};
-
 class Product extends Component {
   constructor(props) {
     super(props);
@@ -39,9 +29,9 @@ class Product extends Component {
       specs,
     } = this.props.items.item;
     return (
-      <div className="container center" style={containerStyle}>
+      <div className="containerStyle container center">
         <h5>{product_name}</h5>
-        <img src={`../../${img}`} alt="Product" style={imgStyles} />
+        <img className="imgStyles" src={`../../${img}`} alt="Product"/>
         <h5>${product_price}</h5>
         <button
           className="btn blue darken-3 btn-small"
@@ -49,7 +39,7 @@ class Product extends Component {
         >
           Add to cart
         </button>
-        <div className="row" style={{ marginTop: "3em" }}>
+        <div className="productInfoDiv row">
           <div className="col s12">
             <ul
               ref={(Tabs) => {
@@ -73,15 +63,14 @@ class Product extends Component {
           </div>
           <div
             id="description"
-            className="col s12"
-            style={{ marginTop: "2em" }}
+            className="productDescription col s12"
           >
             {description}
           </div>
-          <div id="specs" className="col s12" style={{ marginTop: "2em" }}>
+          <div id="specs" className="productDescription col s12">
             {specs}
           </div>
-          <div id="reviews" className="col s12" style={{ marginTop: "2em" }}>
+          <div id="reviews" className="productDescription col s12">
             No Reviews
           </div>
         </div>

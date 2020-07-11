@@ -6,64 +6,62 @@ import {
   decrementItem,
   removeItem,
 } from "../redux/actions/cartActions";
-import { getItem } from "../redux/actions/productActions"
-
-const styles = {
-  marginRight: "1em",
-  color: "black",
-  textAlign: "center",
-};
+import { getItem } from "../redux/actions/productActions";
 
 class Checkout extends Component {
   render() {
     const { cartItems } = this.props.cartItems;
     return (
-      <div style={{ marginBottom: "5em" }}>
+      <div className="checkoutContainer">
         <h4 className="center">Checkout</h4>
-        <div className="cartTop container">
-
+        <div className="container">
           {/* Checkout items */}
           <ul className="collection">
             {cartItems.map((data) => (
-              <li
-              className="collection-item"
-              key={data.id}
-            >
-              <Link to={`/product/${data.id}`} onClick={() => this.props.getItem(data)}>
-              <img
-                src={data.img}
-                style={{ width: "60px", height: "60px" }}
-                alt="product"
-              />
-              </Link>
-              <p>
-                <span style={{fontWeight: "bold"}}>{data.product_name}</span> 
-                <br />${data.product_price.toFixed(2)} <br />
-                Quantity: {data.quantity}
-              </p>
-            </li>
+              <li className="collection-item" key={data.id}>
+                <Link
+                  to={`/product/${data.id}`}
+                  onClick={() => this.props.getItem(data)}
+                >
+                  <img className="checkoutImage" src={data.img} alt="product" />
+                </Link>
+                <p>
+                  <span className="productName">{data.product_name}</span>
+                  <br />${data.product_price.toFixed(2)} <br />
+                  Quantity: {data.quantity}
+                </p>
+              </li>
             ))}
           </ul>
 
-           {/* Order summary section */}
-          <div style={{border: "solid silver 1px" }}>
-            <div style={{ padding: "1em" }}>
-            <h5 className="center">Order Summary</h5>
+          {/* Order summary section */}
+          <div className="orderSummaryContainer">
+            <div className="innerDiv">
+              <h5 className="center">Order Summary</h5>
               <p>
                 Items ({this.props.cartItems.cartItems.length}):{" "}
                 <span className="right">
                   ${this.props.cartItems.total.toFixed(2)}
                 </span>
               </p>
-              <hr/>
-              <p><span style={{fontWeight: "bold"}}>Order Total:</span> <span className="right">${this.props.cartItems.total.toFixed(2)}</span></p>
+              <hr />
+              <p>
+                <span className="orderTotal">Order Total:</span>{" "}
+                <span className="right">
+                  ${this.props.cartItems.total.toFixed(2)}
+                </span>
+              </p>
             </div>
           </div>
 
           {/* Order button and shopping links */}
-          <button className="btn blue darken-3 btn-small right" style={{marginTop: "1em"}}>Place your order</button>
-          <div style={{ marginTop: "1em" }}>
-            <Link style={styles} to="/cart">
+          <button
+            className="placeOrderButton btn blue darken-3 btn-small right"
+          >
+            Place your order
+          </button>
+          <div className="backToCartDiv">
+            <Link className="backToCart" to="/cart">
               <i className="fas fa-arrow-left" /> Back to cart
             </Link>
           </div>
@@ -74,11 +72,13 @@ class Checkout extends Component {
 }
 
 const mapStateToProps = (state) => ({
-  //items: state.items.items,
   cartItems: state.cartItems,
   total: state.total,
 });
 
-export default connect(mapStateToProps, { addItem, decrementItem, removeItem, getItem })(
-  Checkout
-);
+export default connect(mapStateToProps, {
+  addItem,
+  decrementItem,
+  removeItem,
+  getItem,
+})(Checkout);
