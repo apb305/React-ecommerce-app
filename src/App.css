@@ -1,11 +1,7 @@
 body {
   margin: 0;
   padding: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  font-family: "Roboto", sans-serif;
 }
 
 /* Main product page styles */
@@ -51,6 +47,20 @@ body {
 }
 .productDescription {
   margin-top: 2em;
+}
+.descriptionText {
+  text-align: left;
+}
+.dSpan {
+  font-weight: bold;
+  font-size: large;
+}
+.specsText {
+  text-align: left;
+}
+.sSpan {
+  font-size: large;
+  font-weight: bold;
 }
 
 /* Cart Styles*/
@@ -125,27 +135,27 @@ body {
 
 /* Product Description, Specs, and Reviews section */
 .tabs .tab a {
-  color: #000;
+  color: #000 !important;
 } /*Black color to the text*/
 
 .tabs .tab a:hover {
-  color: #000;
+  color: #000 !important;
 } /*Text color on hover*/
 
 .tabs .tab a.active {
-  color: #000;
+  color: #000 !important;
 } /*Background and text color when a tab is active*/
 
 .tabs .indicator {
-  background-color: #000;
+  background-color: #000 !important;
 } /*Color of underline*/
 
 .tabs .tab a:focus.active {
-  color: black;
+  color: black !important;
 }
 
 .tabs .tab a:focus,
 .tabs .tab a:focus.active {
-  background-color: white;
-  outline: none;
+  background-color: white !important;
+  outline: none !important;
 }

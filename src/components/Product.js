@@ -50,11 +50,8 @@ class Product extends Component {
             >
               <li className="tab col s3">
                 <a className="active" href="#description">
-                  Description
+                  Details
                 </a>
-              </li>
-              <li className="tab col s3">
-                <a href="#specs">Specs</a>
               </li>
               <li className="tab col s3">
                 <a href="#reviews">Reviews</a>
@@ -65,13 +62,11 @@ class Product extends Component {
             id="description"
             className="productDescription col s12"
           >
-            {description}
-          </div>
-          <div id="specs" className="productDescription col s12">
-            {specs}
+            <p className="descriptionText"><span className="dSpan">Description:</span> {description}</p>
+            <p className="specsText"><span className="sSpan">Specs:</span> {specs}</p>
           </div>
           <div id="reviews" className="productDescription col s12">
-            No Reviews
+            <p>No reviews</p>
           </div>
         </div>
       </div>
