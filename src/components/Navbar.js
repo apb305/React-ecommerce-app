@@ -3,18 +3,6 @@ import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import M from "materialize-css/dist/js/materialize";
 
-const cartStyles = {
-  fontSize: "11px",
-  fontWeight: "bold",
-  color: "black",
-  background: "#fff200",
-  borderRadius: "50%",
-  padding: "5px",
-  position: "relative",
-  left: "-13px",
-  top: "-9px",
-};
-
 class Navbar extends Component {
 
   componentDidMount() {
@@ -24,7 +12,7 @@ class Navbar extends Component {
 
   render() {
     return (
-      <div>
+      <div className="navbar-fixed">
         <nav className="light-blue darken-3">
           <div className="nav-wrapper">
             <div className="container">
@@ -41,13 +29,12 @@ class Navbar extends Component {
               <Link className="right" to="/cart">
                 <i
                   className="fas fa-shopping-cart fa-lg"
-                  style={{ marginRight: ".5rem" }}
                 ></i>
-                <span style={cartStyles}>
+                <span className="cartItemsCount">
                   {this.props.cartItems.cartItems.length}
                 </span>
               </Link>
-              <Link className="right" to="/" style={{ marginRight: "1rem" }}>
+              <Link className="navShopLink right" to="/">
                 Shop
               </Link>
             </div>
