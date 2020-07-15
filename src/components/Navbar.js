@@ -12,7 +12,7 @@ class Navbar extends Component {
 
   render() {
     return (
-      <div className="navbar-fixed">
+      <div>
         <nav className="light-blue darken-3">
           <div className="nav-wrapper">
             <div className="container">
