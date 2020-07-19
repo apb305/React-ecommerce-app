@@ -6,7 +6,7 @@ import { addItem } from '../redux/actions/cartActions';
 
 class Main extends Component {
 
-  componentWillMount() {
+  componentDidMount() {
     this.props.getItems();
   }
 
